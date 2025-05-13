@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>                                                                          
+<head>                                                                          
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+	<style>
+		td {
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+    <script type="module">
+        import init, { start_client } from "./client.js";
+        
+        async function main() {
+            await init();
+        }
+        
+        main();
+    </script>
+<h1>Thursday night comedy</h1>
+<h2>Server status: <span id="status" style="color:red">Disconnected</span></h2>
+<h2>Brought to you by:<br>
+<ul>
+<li><a href="https://www.rust-lang.org">Rust</a></li>
+<li><a href="https://www.rust-lang.org/what/wasm">WASM</a></li>
+<li><a href="https://crates.io/crates/tonic-web-wasm-client">Web-gRPC</a></li>
+<li><a href="https://crates.io/crates/prost">Protobufs</a></li>
+<li>and <a href="https://crates.io/crates/gloo-worker">Web workers</a></li>
+</ul>
+</h2>
+<table>
+<tr><td id="r1"></tr>
+<tr><td id="r2"></tr>
+<tr><td id="r3"></tr>
+<tr><td id="r4"></tr>
+<tr><td id="r5"></tr>
+<tr><td id="r6"></tr>
+<tr><td id="r7"></tr>
+<tr><td id="r8"></tr>
+<tr><td id="r9"></tr>
+<tr><td id="r10"></tr>
+</table>
+</body>
+</html>

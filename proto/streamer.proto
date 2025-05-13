@@ -1,0 +1,26 @@
+//
+// Sample image streaming protobuf for WASM client.
+// This uses Web-gRPC so only server->client streaming is supported.
+//
+syntax = "proto3";
+
+package streamer;
+
+enum JokeType {
+	ANY = 0;
+	LIMERICK = 1;
+	KNOCK_KNOCK = 2;
+}
+
+message Request {
+	JokeType joke_type = 1;
+}
+
+message Response {
+	JokeType joke_type = 1;
+	repeated string lines = 2;
+}
+
+service Streamer {
+  rpc Jokes(Request) returns (stream Response);
+}

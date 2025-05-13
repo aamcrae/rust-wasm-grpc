@@ -1,0 +1,12 @@
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+members = [
+    "client/client",
+    "client/worker",
+    "server",
+]
+resolver = "2"
