@@ -74,7 +74,7 @@ impl proto::streamer_server::Streamer for Connection {
         // Use a channel for the output stream.
         let (local_tx, local_rx) = mpsc::unbounded_channel();
         // Spawn a thread to send the stream to the client.
-        let jokes = self.jokes.clone();
+        let jokes = Arc::clone(&self.jokes);
         tokio::spawn(async move {
             let mut rng = StdRng::from_os_rng();
             while !local_tx.is_closed() {
