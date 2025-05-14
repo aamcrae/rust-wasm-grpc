@@ -54,10 +54,10 @@ pub async fn JokeStream(mut scope: ReactorScope<Start, Message>) {
         let mut conn = proto::streamer_client::StreamerClient::new(Client::new(server.clone()));
         // Main loop for connecting to server and then listening for streamed messages.
         loop {
-			// Create the initial request parameter.
-        	let req = Request::new(proto::Request {
-            	joke_type: start.joke_type,
-        	});
+            // Create the initial request parameter.
+            let req = Request::new(proto::Request {
+                joke_type: start.joke_type,
+            });
 
             // Connect to the server.
             match conn.jokes(req).await {
