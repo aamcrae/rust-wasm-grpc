@@ -3,7 +3,8 @@ FROM rust:1.87-alpine AS builder
 
 WORKDIR /src
 
-RUN rustup update stable
+#
+# Install protobuf compiler and wasm-bindgen
 RUN apk update  && apk upgrade
 RUN apk add protoc musl-dev
 RUN cargo install wasm-bindgen-cli
@@ -17,7 +18,7 @@ RUN wasm-bindgen target/wasm32-unknown-unknown/release/client.wasm --out-dir www
 RUN (cd client/worker; cargo build -r)
 RUN wasm-bindgen target/wasm32-unknown-unknown/release/worker.wasm --out-dir www --target no-modules
 
-FROM scratch
+FROM alpine
 
 COPY --from=builder /src/www /www
 COPY --from=builder /src/jokes /jokes
