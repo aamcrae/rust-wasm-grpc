@@ -16,7 +16,23 @@ Ensure that the following items are installed:
  - [wasm-bindgen](https://crates.io/crates/wasm-bindgen)
  - WASM Rust toolchain - use ```rustup target add wasm32-unknown-unknown```
 
-## Building and running.
+## Building and running using Docker
+
+A docker image can be built as:
+
+```
+docker build --tag aamcrae/jokes:latest -f Dockerfile .
+```
+
+And run as:
+
+```
+docker compose up
+```
+
+Then navigate a browser tab to ```localhost:8400```
+
+## Building and running manually.
 
 ```build.sh``` is a shell script that will build all the binaries, and install
 the WASM files into the ```www``` directory.

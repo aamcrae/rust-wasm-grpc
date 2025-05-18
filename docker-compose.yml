@@ -1,0 +1,8 @@
+services:
+  jokes:
+    image: aamcrae/jokes:latest
+    container_name: jokes
+    restart: always
+    ports:
+      - "8400:8400"
+      - "8401:8401"
