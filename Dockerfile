@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM rust:1.87-alpine AS builder
+FROM rust:1.92-alpine AS builder
 
 WORKDIR /src
 
@@ -7,7 +7,7 @@ WORKDIR /src
 # Install protobuf compiler and wasm-bindgen
 RUN apk update  && apk upgrade
 RUN apk add protoc musl-dev
-RUN cargo install wasm-bindgen-cli
+RUN cargo install wasm-bindgen-cli --version 0.2.106
 
 COPY . .
 RUN (cd server; cargo build -r)
